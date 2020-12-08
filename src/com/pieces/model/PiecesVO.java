@@ -15,6 +15,8 @@ public class PiecesVO implements Serializable{
 	private Timestamp piece_last_edit_time;
 	private String piece_last_editor;
 	
+	public PiecesVO() {
+	}
 	public String getPiece_id() {
 		return piece_id;
 	}

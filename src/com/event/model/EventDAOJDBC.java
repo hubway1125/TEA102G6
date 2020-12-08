@@ -27,7 +27,7 @@ public class EventDAOJDBC implements EventDAO_interface, DatabaseConnection_inte
 																 + "EVENT_SEAT=? WHERE EVENT_ID = ?";
 	private static final String DELETE_PSTMT = "DELETE FROM EVENT WHERE EVENT_ID = ?";
 	private static final String GET_ONE_PSTMT = "SELECT * FROM EVENT WHERE EVENT_ID = ?";
-	private static final String GET_ALL_PSTMT = "SELECT * FROM EVENT";
+	private static final String GET_ALL_PSTMT = "SELECT * FROM EVENT ORDER BY EVENT_ID";
 
 	@Override
 	public void insert(EventVO eventVO) {

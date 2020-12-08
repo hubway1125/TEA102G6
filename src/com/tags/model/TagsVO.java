@@ -8,6 +8,9 @@ public class TagsVO implements Serializable{
 	private String tag_id;
 	private String tag_name;
 	private Timestamp tag_add_time;
+	
+	public TagsVO() {
+	}
 	public String getTag_id() {
 		return tag_id;
 	}

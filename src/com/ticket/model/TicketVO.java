@@ -15,6 +15,9 @@ public class TicketVO implements Serializable {
 	private Timestamp ticket_endsale_time;
 	private Timestamp ticket_edit_time;
 	private Integer ticket_status;
+	
+	public TicketVO() {
+	}
 
 	public String getTicket_id() {
 		return ticket_id;
