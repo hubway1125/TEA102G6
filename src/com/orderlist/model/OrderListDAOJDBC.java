@@ -5,17 +5,17 @@ import java.util.*;
 
 import database.DatabaseConnection_interface;
 
-public class OrderListJDBCDAO implements OrderListDAO_interface, DatabaseConnection_interface {
+public class OrderListDAOJDBC implements OrderListDAO_interface, DatabaseConnection_interface {
 
-	private static final String INSERT_STMT = "INSERT INTO ORDERLIST VALUES('ORDERLIST'||LPAD(ORDERLIST_SEQ.NEXTVAL, 5, '0'),?,?,?,?,?,?,?,?)";
+	private static final String INSERT_PSTMT = "INSERT INTO ORDERLIST VALUES('ORDERLIST'||LPAD(ORDERLIST_SEQ.NEXTVAL, 5, '0'),?,?,?,?,?,?,?,?)";
 
 	private static final String UPDATE = "UPDATE ORDERLIST SET ORDER_ID=?, PRODUCT_ID=?, ORDERLIST_GOODS_AMOUNT=?, ORDERLIST_REMARKS=?, REVIEW_SCORE=?, REVIEW_MSG=?, REVIEW_TIME=?, REVIEW_HIDDEN=? WHERE ORDERLIST_ID=?";
 
 	private static final String DELETE = "DELETE FROM ORDERLIST WHERE ORDERLIST_ID = ?";
 
-	private static final String GET_ONE_STMT = "SELECT * FROM ORDERLIST WHERE ORDERLIST_ID=?";
+	private static final String GET_ONE_PSTMT = "SELECT * FROM ORDERLIST WHERE ORDERLIST_ID=?";
 
-	private static final String GET_ALL_STMT = "SELECT * FROM ORDERLIST ORDER BY ORDERLIST_ID";
+	private static final String GET_ALL_PSTMT = "SELECT * FROM ORDERLIST ORDER BY ORDERLIST_ID";
 
 	@Override
 	public void insert(OrderListVO orderListVO) {
@@ -24,7 +24,7 @@ public class OrderListJDBCDAO implements OrderListDAO_interface, DatabaseConnect
 		try {
 			Class.forName(DRIVER);
 			con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			pstmt = con.prepareStatement(INSERT_STMT);
+			pstmt = con.prepareStatement(INSERT_PSTMT);
 
 			pstmt.setString(1, orderListVO.getOrder_id());
 			pstmt.setString(2, orderListVO.getProduct_id());
@@ -157,7 +157,7 @@ public class OrderListJDBCDAO implements OrderListDAO_interface, DatabaseConnect
 
 			Class.forName(DRIVER);
 			con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			pstmt = con.prepareStatement(GET_ONE_STMT);
+			pstmt = con.prepareStatement(GET_ONE_PSTMT);
 
 			pstmt.setString(1, orderlist_id);
 
@@ -222,7 +222,7 @@ public class OrderListJDBCDAO implements OrderListDAO_interface, DatabaseConnect
 
 			Class.forName(DRIVER);
 			con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			pstmt = con.prepareStatement(GET_ALL_STMT);
+			pstmt = con.prepareStatement(GET_ALL_PSTMT);
 
 			rs = pstmt.executeQuery();
 

@@ -7,7 +7,9 @@ public class BandTagVO implements Serializable {
 	private String band_tag_id;
 	private String band_id;
 	private String tag_id;
-	
+		
+	public BandTagVO() {
+	}
 	public String getBand_tag_id() {
 		return band_tag_id;
 	}

@@ -13,6 +13,9 @@ public class OrderListVO implements Serializable {
 	private String review_msg;
 	private Timestamp review_time;
 	private Integer review_hidden;
+	
+	public OrderListVO() {
+	}
 
 	public String getOrderlist_id() {
 		return orderlist_id;

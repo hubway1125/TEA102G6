@@ -25,6 +25,9 @@ public class EventVO implements Serializable {
 	private Integer event_status;
 	private byte[] event_seat;
 
+	public EventVO() {
+	}
+
 	public String getEvent_id() {
 		return event_id;
 	}

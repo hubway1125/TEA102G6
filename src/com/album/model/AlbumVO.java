@@ -17,6 +17,8 @@ public class AlbumVO implements Serializable {
 	private Timestamp album_last_edit_time;
 	private String album_last_editor;
 	
+	public AlbumVO() {
+	}
 	public String getAlbum_id() {
 		return album_id;
 	}
