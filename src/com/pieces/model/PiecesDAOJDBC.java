@@ -107,22 +107,22 @@ public class PiecesDAOJDBC implements PiecesDAO_interface, DatabaseConnection_in
 			pstmt.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} finally {
 			if (pstmt != null) {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 		}
@@ -151,22 +151,22 @@ public class PiecesDAOJDBC implements PiecesDAO_interface, DatabaseConnection_in
 			pstmt.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} finally {
 			if (pstmt != null) {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 		}
@@ -189,22 +189,22 @@ public class PiecesDAOJDBC implements PiecesDAO_interface, DatabaseConnection_in
 			pstmt.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} finally {
 			if (pstmt != null) {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 		}
@@ -241,29 +241,29 @@ public class PiecesDAOJDBC implements PiecesDAO_interface, DatabaseConnection_in
 			}
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (pstmt != null) {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 
@@ -304,29 +304,29 @@ public class PiecesDAOJDBC implements PiecesDAO_interface, DatabaseConnection_in
 			}
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (pstmt != null) {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 

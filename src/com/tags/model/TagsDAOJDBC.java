@@ -93,22 +93,22 @@ public class TagsDAOJDBC implements TagsDAO_interface, DatabaseConnection_interf
 			
 			pstmt.executeUpdate();
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} finally {
 			if (pstmt != null) {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 		}
@@ -134,22 +134,22 @@ public class TagsDAOJDBC implements TagsDAO_interface, DatabaseConnection_interf
 			pstmt.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} finally {
 			if (pstmt != null) {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 		}
@@ -172,22 +172,22 @@ public class TagsDAOJDBC implements TagsDAO_interface, DatabaseConnection_interf
 			pstmt.executeUpdate();
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} finally {
 			if (pstmt != null) {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 		}		
@@ -220,29 +220,29 @@ public class TagsDAOJDBC implements TagsDAO_interface, DatabaseConnection_interf
 			}
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (pstmt != null) {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 
@@ -277,29 +277,29 @@ public class TagsDAOJDBC implements TagsDAO_interface, DatabaseConnection_interf
 			}
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(System.err);
 		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (pstmt != null) {
 				try {
 					pstmt.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 			if (conn != null) {
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					e.printStackTrace(System.err);
 				}
 			}
 
