@@ -1,4 +1,4 @@
-package database;
+package database.util;
 
 public interface DatabaseConnection_interface {
 

@@ -1,16 +1,13 @@
-<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.tags.model.TagsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.tags.model.TagsVO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-	TagsVO tagsVO = (TagsVO) request.getAttribute("tagsVO");
-%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Tag資料新增 addTags.jsp</title>
+<title>Tag資料修改 - update_tag_input.jsp</title>
 <style>
 table#table-1 {
 	background-color: #CCCCFF;
@@ -47,23 +44,21 @@ th, td {
 }
 </style>
 </head>
-<body>
-	<body bgcolor='white'>
+<body bgcolor='white'>
 
 	<table id="table-1">
-	<tr>
+		<tr>
 			<td>
-		 <h3>Tag資料新增 addTags.jsp</h3>
+				<h3>Tag資料修改 - update_tag_input.jsp</h3>
+				<h4>
+					<a href="<%=request.getContextPath()%>/back-end/tags/index_tags.jsp"><img
+						src="<%=request.getContextPath()%>/back-end/tags/images/back1.gif" width="100" height="32" border="0">回首頁</a>
+				</h4>
 			</td>
-			<td>
-		 <h4>
-					<a href="<%=request.getContextPath()%>/views/tags/index_tags.jsp"><img src="images/tomcat.png" width="100" height="100" border="0">回首頁
-	</a>
-	</h4>
-	</td>
-	</tr>
+		</tr>
 	</table>
-	<h3>資料新增:</h3>
+
+	<h3>資料修改:</h3>
 
 	<%-- 錯誤表列 --%>
 	<c:if test="${not empty errorMsgs}">
@@ -74,31 +69,29 @@ th, td {
 			</c:forEach>
 		</ul>
 	</c:if>
-	<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/tags/tags.do" name="form1">
+
+	<FORM METHOD="post" ACTION="tags.do" name="form1">
 		<table>
+			<tr>
+				<td>Tag ID:<font color=red><b>*</b></font></td>
+				<td>${tagsVO.tag_id}</td>
+			</tr>
 			<tr>
 				<td>Tag Name:</td>
 				<td><input type="TEXT" name="tag_name" size="45"
-					value="<%=(tagsVO == null) ? "" : tagsVO.getTag_name()%>" /></td>
+					value="${tagsVO.tag_name}" /></td>
 			</tr>
 			<tr>
 				<td>Tag Add Time:</td>
-				<td><input type="TEXT" readonly name="tag_add_time" size="45"
-					value="<%=(tagsVO == null) ? new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date(System.currentTimeMillis())): tagsVO.getTag_add_time()%>" /></td>
+				<td><fmt:formatDate
+								value="${tagsVO.tag_add_time}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 			</tr>
-
 		</table>
-		<br> <input type="hidden" name="action" value="insert"> <input
-			type="submit" value="送出新增">
+
+		<br> <input type="hidden" name="action" value="update"> <input
+			type="hidden" name="tag_id" value="${tagsVO.tag_id}"> <input
+			type="submit" value="送出修改">
 	</FORM>
 
-
-
-
-
-
-
 </body>
-
-
 </html>

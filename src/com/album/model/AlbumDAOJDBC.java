@@ -3,7 +3,7 @@ package com.album.model;
 import java.sql.*;
 import java.util.*;
 
-import database.DatabaseConnection_interface;
+import database.util.DatabaseConnection_interface;
 
 public class AlbumDAOJDBC implements AlbumDAO_interface, DatabaseConnection_interface {
 	

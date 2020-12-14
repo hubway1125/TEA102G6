@@ -3,7 +3,7 @@ package com.pieces.model;
 import java.sql.*;
 import java.util.*;
 
-import database.DatabaseConnection_interface;
+import database.util.DatabaseConnection_interface;
 
 public class PiecesDAOJDBC implements PiecesDAO_interface, DatabaseConnection_interface {
 

@@ -17,19 +17,20 @@
 <meta charset="UTF-8">
 <title>Select_Page.jsp</title>
 <style>
+
 table, tr, th, td {
 	border: 1px solid blue;
-	text-align: center
+	text-align: center;
 }
 
 th, td {
 	padding: 5px;
 }
+
 </style>
 
 </head>
 <body>
-
 	<h3>資料查詢:</h3>
 
 	<%-- 錯誤表列 --%>
@@ -92,7 +93,7 @@ th, td {
 
 	<h3>Tag 管理</h3>
 	<ul>
-		<li><a href='<%=request.getContextPath()%>/views/tags/addTags.jsp'>Add</a>
+		<li><a href='<%=request.getContextPath()%>/back-end/tags/addTags.jsp'>Add</a>
 			a new Tag.</li>
 	</ul>
 	<% 
@@ -134,6 +135,5 @@ th, td {
 		
 	</table>
 	<%@ include file="pages/page2.file" %> 
-
 </body>
 </html>

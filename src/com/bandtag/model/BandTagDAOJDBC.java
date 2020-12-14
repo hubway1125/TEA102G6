@@ -3,11 +3,11 @@ package com.bandtag.model;
 import java.sql.*;
 import java.util.*;
 
-import database.DatabaseConnection_interface;
+import database.util.DatabaseConnection_interface;
 
 public class BandTagDAOJDBC implements BandTagDAO_interface, DatabaseConnection_interface {
 
-	private static final String INSERT_PSTMT = "INSERT INTO BANDTAG VALUES ('BANDTAG'||LPAD(PIECES_SEQ.NEXTVAL, 5, '0'), ?, ?)";
+	private static final String INSERT_PSTMT = "INSERT INTO BANDTAG VALUES ('BANDTAG'||LPAD(BANDTAG_SEQ.NEXTVAL, 5, '0'), ?, ?)";
 	private static final String UPDATE_PSTMT = "UPDATE BANDTAG SET BAND_ID = ?, TAG_ID = ? WHERE BAND_TAG_ID = ?";
 	private static final String DELETE_PSTMT = "DELETE FROM BANDTAG WHERE BAND_TAG_ID = ?";
 	private static final String GET_ONE_PSTMT = "SELECT * FROM BANDTAG WHERE BAND_TAG_ID = ?";

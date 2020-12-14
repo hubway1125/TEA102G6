@@ -7,9 +7,7 @@
 	class="com.pieces.model.PiecesService" />
 <jsp:useBean id="piecesVO" scope="page"
 	class="com.pieces.model.PiecesVO" />
-<%-- <% --%>
-// PiecesVO piecesVO = new PiecesVO();
-<%-- %> --%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,9 +24,20 @@ table, tr, th, td {
 	margin: 0 auto;
 }
 
+td{
+	padding: 5px;
+}
+
 th {
 	background-color: #a4c0f4;
 	color: white;
+}
+div{
+/* width: 800px; */
+margin: 0 auto;
+}
+li{
+margin: 5px;
 }
 </style>
 </head>
@@ -43,15 +52,8 @@ th {
 			</c:forEach>
 		</ul>
 	</c:if>
-	<!-- 	private String piece_id; -->
-	<!-- 	private String album_id; -->
-	<!-- 	private byte[] piece; -->
-	<!-- 	private Integer piece_status; -->
-	<!-- 	private Integer piece_play_count; -->
-	<!-- 	private Timestamp piece_add_time; -->
-	<!-- 	private Timestamp piece_last_edit_time; -->
-	<!-- 	private String piece_last_editor; -->
-
+	
+<div>
 	<ul>
 		<li>
 			<FORM METHOD="post"
@@ -76,7 +78,8 @@ th {
 			<FORM METHOD="post"
 				ACTION="<%=request.getContextPath()%>/pieces/pieces.do">
 				<b>輸入專輯ID (如ALBUM00000):</b> <input type="text" name="album_id">
-				<input type="hidden" name="action" value="getOne_For_Display">
+				<input type="hidden" name="action-data" value="album_id">
+				<input type="hidden" name="action" value="getCriteria_For_Display">
 				<input type="submit" value="送出">
 			</FORM>
 		</li>
@@ -87,7 +90,9 @@ th {
 					<c:forEach var="piecesVO" items="${piecesSvc.allPieces}">
 						<option value="${piecesVO.album_id}">${piecesVO.album_id}
 					</c:forEach>
-				</select> <input type="hidden" name="action" value="getAlbum_For_Display">
+				</select>
+				<input type="hidden" name="action-data" value="album_id">
+				<input type="hidden" name="action" value="getCriteria_For_Display">
 				<input type="submit" value="送出">
 			</FORM>
 		</li>
@@ -97,7 +102,9 @@ th {
 				<b>選擇作品上架狀態:</b> <select size="1" name="piece_status">
 					<option value="0">上架
 					<option value="1">下架
-				</select> <input type="hidden" name="action" value="getStatus_For_Display">
+				</select> 
+				<input type="hidden" name="action-data" value="piece_status">
+				<input type="hidden" name="action" value="getCriteria_For_Display">
 				<input type="submit" value="送出">
 			</FORM>
 		</li>
@@ -105,9 +112,36 @@ th {
 			<FORM METHOD="post"
 				ACTION="<%=request.getContextPath()%>/pieces/pieces.do">
 				<b>選擇作品新增日期區間:</b> 
-				<br> 開始日期: <input name="start_date" id="start_date" type="text"> <br>
-				<br> 結束日期: <input name="end_date" id="end_date" type="text">
-				</select> <input type="hidden" name="action" value="getAddTimestampRange_For_Display">
+				 開始日期: <input name="start_date1" id="start_date1" type="text"> ~
+				 結束日期: <input name="end_date1" id="end_date1" type="text">
+				</select> 
+				<input type="hidden" name="action-data" value="piece_add_time">
+				<input type="hidden" name="action" value="getCriteriaTime_For_Display">
+				<input type="submit" value="送出">
+			</FORM>
+		</li>
+		<li>
+			<FORM METHOD="post"
+				ACTION="<%=request.getContextPath()%>/pieces/pieces.do">
+				<b>選擇作品最後編輯日期區間:</b> 
+				 開始日期: <input name="start_date2" id="start_date2" type="text"> ~
+				 結束日期: <input name="end_date2" id="end_date2" type="text">
+				</select> 
+				<input type="hidden" name="action-data" value="piece_last_edit_time">
+				<input type="hidden" name="action" value="getCriteriaTime_For_Display">
+				<input type="submit" value="送出">
+			</FORM>
+		</li>
+		<li>
+			<FORM METHOD="post"
+				ACTION="<%=request.getContextPath()%>/pieces/pieces.do">
+				<b>選擇最後編輯者:</b> <select size="1" name="piece_last_editor">
+					<c:forEach var="piecesVO" items="${piecesSvc.allPieces}">
+						<option value="${piecesVO.piece_last_editor}">${piecesVO.piece_last_editor}
+					</c:forEach>
+				</select> 
+				<input type="hidden" name="action-data" value="piece_last_editor">
+				<input type="hidden" name="action" value="getCriteria_For_Display">
 				<input type="submit" value="送出">
 			</FORM>
 		</li>
@@ -115,6 +149,7 @@ th {
 
 
 	</ul>
+	</div>
 
 	<table>
 		<tr>
@@ -137,8 +172,8 @@ th {
 				<td>${piecesVO.piece}</td>
 				<td>${piecesVO.piece_status == 0 ? "下架":"上架"}</td>
 				<td>${piecesVO.piece_play_count}</td>
-				<td>${piecesVO.piece_add_time}</td>
-				<td>${piecesVO.piece_last_edit_time}</td>
+				<td><fmt:formatDate	value="${piecesVO.piece_add_time}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+				<td><fmt:formatDate	value="${piecesVO.piece_last_edit_time}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 				<td>${piecesVO.piece_last_editor}</td>
 				<td>
 					<FORM METHOD="post"
@@ -163,5 +198,66 @@ th {
 
 
 	</table>
+	<!-- 參考網站: https://xdsoft.net/jqplugins/datetimepicker/ -->
+<link   rel="stylesheet" type="text/css" href="datetimepicker/jquery.datetimepicker.css" />
+<script src="datetimepicker/jquery.js"></script>
+<script src="datetimepicker/jquery.datetimepicker.full.js"></script>
+
+<style>
+  .xdsoft_datetimepicker .xdsoft_datepicker {
+           width:  300px;   /* width:  300px; */
+  }
+  .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box {
+           height: 151px;   /* height:  151px; */
+  }
+</style>
+
+<script>
+$.datetimepicker.setLocale('zh'); // kr ko ja en
+$(function(){
+	 $('#start_date1').datetimepicker({
+	  format:'Y-m-d',
+	  onShow:function(){
+	   this.setOptions({
+	    maxDate:$('#end_date1').val()?$('#end_date1').val():false
+	   })
+	  },
+	  timepicker:false
+	 });
+	 
+	 $('#end_date1').datetimepicker({
+	  format:'Y-m-d',
+	  onShow:function(){
+	   this.setOptions({
+	    minDate:$('#start_date1').val()?$('#start_date1').val():false
+	   })
+	  },
+	  timepicker:false
+	 });
+});
+
+$.datetimepicker.setLocale('zh'); // kr ko ja en
+$(function(){
+	 $('#start_date2').datetimepicker({
+	  format:'Y-m-d',
+	  onShow:function(){
+	   this.setOptions({
+	    maxDate:$('#end_date2').val()?$('#end_date2').val():false
+	   })
+	  },
+	  timepicker:false
+	 });
+	 
+	 $('#end_date2').datetimepicker({
+	  format:'Y-m-d',
+	  onShow:function(){
+	   this.setOptions({
+	    minDate:$('#start_date2').val()?$('#start_date2').val():false
+	   })
+	  },
+	  timepicker:false
+	 });
+});
+</script>
 </body>
 </html>

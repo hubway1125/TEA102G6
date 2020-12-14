@@ -28,8 +28,8 @@ th, td {
 
 <table id="table-1">
 	<tr><td>
-		 <h3>Tag資料修改 - update_tag_input.jsp</h3>
-		 <h4><a href="<%=request.getContextPath()%>/views/tags/index_tags.jsp"><img src="images/back1.gif" width="100" height="32" border="0">回首頁</a></h4>
+		 <h3>Tag資料 - listOneTag.jsp</h3>
+		 <h4><a href="<%=request.getContextPath()%>/back-end/tags/index_tags.jsp"><img src="<%=request.getContextPath()%>/back-end/tags/images/back1.gif" width="100" height="32" border="0">回首頁</a></h4>
 	</td></tr>
 </table>
 	<table>

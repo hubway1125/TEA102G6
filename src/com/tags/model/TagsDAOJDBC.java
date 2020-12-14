@@ -5,7 +5,7 @@ import java.util.*;
 
 import com.pieces.model.PiecesVO;
 
-import database.DatabaseConnection_interface;
+import database.util.DatabaseConnection_interface;
 
 public class TagsDAOJDBC implements TagsDAO_interface, DatabaseConnection_interface{
 	
