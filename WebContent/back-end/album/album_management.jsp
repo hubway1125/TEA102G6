@@ -3,15 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" >
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/album/album_management.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-	<title>Insert title here</title>
+	<title>album_management.jsp</title>
 </head>
 <body>
 	<div class="page">
-        <form action="">
+        <form method="post" action="<%=request.getContextPath()%>/album/albumManage.do" enctype="multipart/form-data">
             <table>
                 <tr>
                     <td>
@@ -26,7 +26,7 @@
                         <span>專輯簡介</span>
                     </td>
                     <td>
-                        <input type="text" name="album_name">
+                        <input type="text" name="album_intro">
                     </td>
                 </tr>
                 <tr>
@@ -34,7 +34,7 @@
                         <span>上架時間</span>
                     </td>
                     <td>
-                        <input type="text" name="album_name">
+                        <input type="text" name="album_add_time">
                     </td>
                 </tr>
                 <tr>
@@ -42,7 +42,7 @@
                         <span>專輯照片</span>
                     </td>
                     <td>
-                        <input type="text" name="album_name">
+                        <input type="file" name="album_photo">
                     </td>
                 </tr>
                 <tr>
@@ -108,6 +108,8 @@
                 <tr>
                     <td></td>
                     <td>
+                    	<% session.setAttribute("band_id", "BAND00000"); %>
+                    	<input type="hidden" name="action" value="add_album">
                         <button type="submit">確定送出</button>
                     </td>
                 </tr>

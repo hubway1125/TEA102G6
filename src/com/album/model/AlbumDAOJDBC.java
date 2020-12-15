@@ -14,6 +14,7 @@ public class AlbumDAOJDBC extends DatabaseConnection implements AlbumDAO_interfa
 	private static final String GET_ALL_PSTMT = "SELECT * FROM ALBUM ORDER BY ALBUM_ID";
 	
 	
+	
 	public static void main(String[] args) {
 
 		AlbumDAOJDBC dao = new AlbumDAOJDBC();
@@ -348,5 +349,5 @@ public class AlbumDAOJDBC extends DatabaseConnection implements AlbumDAO_interfa
 		return list;
 	}
 	
-
+	
 }
