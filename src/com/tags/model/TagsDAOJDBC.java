@@ -5,9 +5,9 @@ import java.util.*;
 
 import com.pieces.model.PiecesVO;
 
-import database.DatabaseConnection_interface;
+import database.util.DatabaseConnection;
 
-public class TagsDAOJDBC implements TagsDAO_interface, DatabaseConnection_interface{
+public class TagsDAOJDBC extends DatabaseConnection implements TagsDAO_interface{
 	
 	private static final String INSERT_PSTMT = "INSERT INTO TAGS VALUES ('TAGS'||LPAD(TAGS_SEQ.NEXTVAL, 5, '0'), ?, ?)";
 	private static final String UPDATE_PSTMT = "UPDATE TAGS SET TAG_NAME = ?, TAG_ADD_TIME = ? WHERE TAG_ID = ?";

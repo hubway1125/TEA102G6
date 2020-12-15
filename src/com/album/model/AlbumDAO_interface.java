@@ -2,7 +2,7 @@ package com.album.model;
 
 import java.util.List;
 
-import database.DatabaseConnection_interface;
+import database.util.DatabaseConnection;
 
 public interface AlbumDAO_interface  {
 	
