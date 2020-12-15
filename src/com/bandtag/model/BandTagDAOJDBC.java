@@ -3,9 +3,9 @@ package com.bandtag.model;
 import java.sql.*;
 import java.util.*;
 
-import database.util.DatabaseConnection_interface;
+import database.util.DatabaseConnection;
 
-public class BandTagDAOJDBC implements BandTagDAO_interface, DatabaseConnection_interface {
+public class BandTagDAOJDBC extends DatabaseConnection implements BandTagDAO_interface {
 
 	private static final String INSERT_PSTMT = "INSERT INTO BANDTAG VALUES ('BANDTAG'||LPAD(BANDTAG_SEQ.NEXTVAL, 5, '0'), ?, ?)";
 	private static final String UPDATE_PSTMT = "UPDATE BANDTAG SET BAND_ID = ?, TAG_ID = ? WHERE BAND_TAG_ID = ?";

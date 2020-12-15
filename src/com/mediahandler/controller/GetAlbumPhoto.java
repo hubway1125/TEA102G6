@@ -1,4 +1,4 @@
-package com.binary.controller;
+package com.mediahandler.controller;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-@WebServlet("/band/getBandPhoto.do")
-public class GetBandPhoto extends HttpServlet {
+@WebServlet("/band/getAlbumPhoto.do")
+public class GetAlbumPhoto extends HttpServlet {
 	
 	Connection con;
 	
@@ -33,11 +33,11 @@ public class GetBandPhoto extends HttpServlet {
 		ServletOutputStream out = res.getOutputStream();
 		try {
 			Statement stmt = con.createStatement();
-			String id = req.getParameter("band_id").trim();
+			String id = req.getParameter("album_id").trim();
 			ResultSet rs = stmt.executeQuery(
-				"SELECT BAND_PHOTO FROM BAND WHERE BAND_ID = '" + id +"'");
+				"SELECT ALBUM_PHOTO FROM ALBUM WHERE ALBUM_ID = '" + id +"'");
 			if (rs.next()) {
-				BufferedInputStream in = new BufferedInputStream(rs.getBinaryStream("BAND_PHOTO"));
+				BufferedInputStream in = new BufferedInputStream(rs.getBinaryStream("ALBUM_PHOTO"));
 				byte[] buf = new byte[4 * 1024]; // 4K buffer
 				int len;
 				while ((len = in.read(buf)) != -1) {

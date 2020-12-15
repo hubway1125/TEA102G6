@@ -3,9 +3,9 @@ package com.pieces.model;
 import java.sql.*;
 import java.util.*;
 
-import database.util.DatabaseConnection_interface;
+import database.util.DatabaseConnection;
 
-public class PiecesDAOJDBC implements PiecesDAO_interface, DatabaseConnection_interface {
+public class PiecesDAOJDBC extends DatabaseConnection implements PiecesDAO_interface {
 
 	private static final String INSERT_PSTMT = "INSERT INTO PIECES VALUES ('PIECES'||LPAD(PIECES_SEQ.NEXTVAL, 5, '0'), ?, ?, ?, ?, ?, ?, ?)";
 	private static final String UPDATE_PSTMT = "UPDATE PIECES SET ALBUM_ID = ?, PIECE = ?, PIECE_STATUS = ?, PIECE_PLAY_COUNT = ?, PIECE_ADD_TIME = ?, PIECE_LAST_EDIT_TIME = ?, PIECE_LAST_EDITOR = ? WHERE PIECE_ID = ?";

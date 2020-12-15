@@ -2,7 +2,7 @@ package com.tags.model;
 
 import java.util.List;
 
-import database.util.DatabaseConnection_interface;
+import database.util.DatabaseConnection;
 
 
 public interface TagsDAO_interface  {

@@ -1,51 +1,19 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="com.tags.model.TagsVO"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
 	TagsVO tagsVO = (TagsVO) request.getAttribute("tagsVO");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Tag資料新增 addTags.jsp</title>
-<style>
-table#table-1 {
-	background-color: #CCCCFF;
-	border: 2px solid black;
-	text-align: center;
-}
-
-table#table-1 h4 {
-	color: red;
-	display: block;
-	margin-bottom: 1px;
-}
-
-h4 {
-	color: blue;
-	display: inline;
-}
-</style>
-
-<style>
-table {
-	width: 450px;
-	background-color: white;
-	margin-top: 1px;
-	margin-bottom: 1px;
-}
-
-table, th, td {
-	border: 0px solid #CCCCFF;
-}
-
-th, td {
-	padding: 1px;
-}
-</style>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/tags/addTags.css">
 </head>
 <body>
 	<body bgcolor='white'>
@@ -57,7 +25,7 @@ th, td {
 			</td>
 			<td>
 		 <h4>
-					<a href="<%=request.getContextPath()%>/back-end/tags/index_tags.jsp"><img src="<%=request.getContextPath()%>/back-end/tags/images/back1.gif" width="100" height="100" border="0">回首頁
+					<a href="<%=request.getContextPath()%>/back-end/tags/index_tags.jsp"><img src="<%=request.getContextPath()%>/images/back1.gif" width="100" height="32" border="0">回首頁
 	</a>
 	</h4>
 	</td>
@@ -92,13 +60,6 @@ th, td {
 			type="submit" value="送出新增">
 	</FORM>
 
-
-
-
-
-
-
 </body>
-
 
 </html>

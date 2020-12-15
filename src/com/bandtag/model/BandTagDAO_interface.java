@@ -2,7 +2,7 @@ package com.bandtag.model;
 
 import java.util.List;
 
-import database.util.DatabaseConnection_interface;
+import database.util.DatabaseConnection;
 
 
 public interface BandTagDAO_interface  {

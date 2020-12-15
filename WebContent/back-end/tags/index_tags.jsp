@@ -1,34 +1,22 @@
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <%@page import="com.tags.model.TagsService"%>
 <%@page import="com.tags.model.TagsVO"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<jsp:useBean id="tagsSvc" scope="page"
-	class="com.tags.model.TagsService" />
+
+<jsp:useBean id="tagsSvc" scope="page" class="com.tags.model.TagsService" />
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/tags/index_tags.css">
 <title>Select_Page.jsp</title>
-<style>
-
-table, tr, th, td {
-	border: 1px solid blue;
-	text-align: center;
-}
-
-th, td {
-	padding: 5px;
-}
-
-</style>
-
 </head>
 <body>
 	<h3>資料查詢:</h3>
@@ -102,7 +90,7 @@ th, td {
 	    List<TagsVO> list = tagsService.getAllTags();
 	    pageContext.setAttribute("list",list);
 	%>
-	<%@ include file="pages/page1.file" %> 
+	<%@ include file="/plugins/pages/page1.file" %> 
 	<table>
 		<tr>
 			<th>Tag ID</th>
@@ -134,6 +122,6 @@ th, td {
 		</c:forEach>
 		
 	</table>
-	<%@ include file="pages/page2.file" %> 
+	<%@ include file="/plugins/pages/page2.file" %> 
 </body>
 </html>

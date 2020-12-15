@@ -1,0 +1,50 @@
+* {
+    vertical-align: middle;
+    margin: 0 auto;
+}
+h2{
+    display: inline-block;
+}
+
+ul {
+    list-style: none;
+    border: 5px solid rgb(0, 0, 0);
+    border-radius: 10px;
+
+}
+
+div {
+    display: inline-block;
+}
+div.left, div.middle, div.right{
+    margin: 0 10px;
+}
+
+div.page {
+    margin: 0 auto;
+}
+
+div.piece_item {
+    border: 1px solid rgb(0, 183, 255);
+    border-radius: 10px;
+    background-color: whitesmoke;
+    padding: 5px;
+}
+
+table {
+    border: 2px solid rgb(0, 183, 255);
+    border-radius: 10px;
+    background-color: rgba(100, 148, 237, 0.466);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+img.album_photo {
+    width: 50px;
+    height: 30px;
+}
+
+button {
+    border: 0;
+}

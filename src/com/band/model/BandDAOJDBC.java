@@ -10,10 +10,10 @@ import java.util.List;
 
 public class BandDAOJDBC implements BandDAO_interface {
 
-	private final String DRIVER = database.util.DatabaseConnection_interface.DRIVER;
-	private final String URL = database.util.DatabaseConnection_interface.URL;
-	private final String USERNAME = database.util.DatabaseConnection_interface.USERNAME;
-	private final String PASSWORD = database.util.DatabaseConnection_interface.PASSWORD;
+	private final String DRIVER = database.util.DatabaseConnection.DRIVER;
+	private final String URL = database.util.DatabaseConnection.URL;
+	private final String USERNAME = database.util.DatabaseConnection.USERNAME;
+	private final String PASSWORD = database.util.DatabaseConnection.PASSWORD;
 
 	private static final String INSERT_PSTMT = "INSERT INTO BAND VALUES ('BAND'||LPAD(BAND_SEQ.NEXTVAL, 5, '0'), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String UPDATE_PSTMT = "UPDATE BAND SET BAND_NAME = ?, BAND_INTRO = ?, BAND_PHOTO = ?, BAND_BANNER = ?, BAND_PIECE_CHECK = ?, BAND_ADD_TIME = ?, BAND_STATUS = ?, BAND_LAST_EDIT_TIME = ?, BAND_LAST_EDITOR = ? WHERE BAND_ID = ?";

@@ -1,45 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <%@page import="com.pieces.model.PiecesVO"%>
-<jsp:useBean id="piecesSvc" scope="page"
-	class="com.pieces.model.PiecesService" />
-<jsp:useBean id="piecesVO" scope="page"
-	class="com.pieces.model.PiecesVO" />
+
+<jsp:useBean id="piecesSvc" scope="page" class="com.pieces.model.PiecesService" />
+<jsp:useBean id="piecesVO" scope="page"	class="com.pieces.model.PiecesVO" />
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Piece</title>
-<style>
-h1 {
-	text-align: center;
-}
-
-table, tr, th, td {
-	border: 1px solid blue;
-	text-align: center;
-	margin: 0 auto;
-}
-
-td{
-	padding: 5px;
-}
-
-th {
-	background-color: #a4c0f4;
-	color: white;
-}
-div{
-/* width: 800px; */
-margin: 0 auto;
-}
-li{
-margin: 5px;
-}
-</style>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/pieces/index_pieces.css">
 </head>
 <body>
 	<h1>作品管理</h1>
@@ -199,65 +173,10 @@ margin: 5px;
 
 	</table>
 	<!-- 參考網站: https://xdsoft.net/jqplugins/datetimepicker/ -->
-<link   rel="stylesheet" type="text/css" href="datetimepicker/jquery.datetimepicker.css" />
-<script src="datetimepicker/jquery.js"></script>
-<script src="datetimepicker/jquery.datetimepicker.full.js"></script>
+<link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/plugins/datetimepicker/jquery.datetimepicker.css" />
+<script src="<%=request.getContextPath()%>/plugins/datetimepicker/jquery.js"></script>
+<script src="<%=request.getContextPath()%>/plugins/datetimepicker/jquery.datetimepicker.full.js"></script>
+<script src="<%=request.getContextPath()%>/js/pieces/index_pieces.js"></script>
 
-<style>
-  .xdsoft_datetimepicker .xdsoft_datepicker {
-           width:  300px;   /* width:  300px; */
-  }
-  .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box {
-           height: 151px;   /* height:  151px; */
-  }
-</style>
-
-<script>
-$.datetimepicker.setLocale('zh'); // kr ko ja en
-$(function(){
-	 $('#start_date1').datetimepicker({
-	  format:'Y-m-d',
-	  onShow:function(){
-	   this.setOptions({
-	    maxDate:$('#end_date1').val()?$('#end_date1').val():false
-	   })
-	  },
-	  timepicker:false
-	 });
-	 
-	 $('#end_date1').datetimepicker({
-	  format:'Y-m-d',
-	  onShow:function(){
-	   this.setOptions({
-	    minDate:$('#start_date1').val()?$('#start_date1').val():false
-	   })
-	  },
-	  timepicker:false
-	 });
-});
-
-$.datetimepicker.setLocale('zh'); // kr ko ja en
-$(function(){
-	 $('#start_date2').datetimepicker({
-	  format:'Y-m-d',
-	  onShow:function(){
-	   this.setOptions({
-	    maxDate:$('#end_date2').val()?$('#end_date2').val():false
-	   })
-	  },
-	  timepicker:false
-	 });
-	 
-	 $('#end_date2').datetimepicker({
-	  format:'Y-m-d',
-	  onShow:function(){
-	   this.setOptions({
-	    minDate:$('#start_date2').val()?$('#start_date2').val():false
-	   })
-	  },
-	  timepicker:false
-	 });
-});
-</script>
 </body>
 </html>

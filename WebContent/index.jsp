@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,16 +37,10 @@
 				<a href="<%=request.getContextPath()%>/front-end/band/band_album_pieces.jsp">Go to the band_album_pieces.jsp</a>
 			</div>
 			<div class="link">
-				<a href="<%=request.getContextPath()%>/front-end/band/band_album_pieces.jsp">Go to the band_album_pieces.jsp</a>
+				<a href="<%=request.getContextPath()%>/front-end/band/band_album_pieces.jsp">Put Something here!</a>
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
 
 </body>
 </html>

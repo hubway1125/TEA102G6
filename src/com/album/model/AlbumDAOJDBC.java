@@ -3,9 +3,9 @@ package com.album.model;
 import java.sql.*;
 import java.util.*;
 
-import database.util.DatabaseConnection_interface;
+import database.util.DatabaseConnection;
 
-public class AlbumDAOJDBC implements AlbumDAO_interface, DatabaseConnection_interface {
+public class AlbumDAOJDBC extends DatabaseConnection implements AlbumDAO_interface {
 	
 	private static final String INSERT_PSTMT = "INSERT INTO ALBUM VALUES ('ALBUM'||LPAD(PIECES_SEQ.NEXTVAL, 5, '0'), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String UPDATE_PSTMT = "UPDATE ALBUM SET BAND_ID = ?, ALBUM_NAME = ?, ALBUM_INTRO = ?, ALBUM_PHOTO = ?, ALBUM_STATUS = ?, ALBUM_ADD_TIME = ?, ALBUM_RELEASE_TIME = ?, ALBUM_LAST_EDIT_TIME = ?, ALBUM_LAST_EDITOR = ? WHERE ALBUM_ID = ?";

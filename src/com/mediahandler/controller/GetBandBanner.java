@@ -1,4 +1,4 @@
-package com.binary.controller;
+package com.mediahandler.controller;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-@WebServlet("/pieces/getPiece.do")
-public class GetPiece extends HttpServlet {
+@WebServlet("/band/getBandBanner.do")
+public class GetBandBanner extends HttpServlet {
 	
 	Connection con;
 	
@@ -29,15 +29,15 @@ public class GetPiece extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
-		res.setContentType("audio/mpeg");
+		res.setContentType("image/gif");
 		ServletOutputStream out = res.getOutputStream();
 		try {
 			Statement stmt = con.createStatement();
-			String id = req.getParameter("piece_id").trim();
+			String id = req.getParameter("band_id").trim();
 			ResultSet rs = stmt.executeQuery(
-				"SELECT PIECE FROM PIECES WHERE PIECE_ID = '" + id +"'");
+				"SELECT BAND_BANNER FROM BAND WHERE BAND_ID = '" + id +"'");
 			if (rs.next()) {
-				BufferedInputStream in = new BufferedInputStream(rs.getBinaryStream("PIECE"));
+				BufferedInputStream in = new BufferedInputStream(rs.getBinaryStream("BAND_BANNER"));
 				byte[] buf = new byte[4 * 1024]; // 4K buffer
 				int len;
 				while ((len = in.read(buf)) != -1) {
