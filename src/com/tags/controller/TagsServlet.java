@@ -45,7 +45,7 @@ public class TagsServlet extends HttpServlet {
 				// Send the use back to the form, if there were errors
 				if (!errorMsgs.isEmpty()) {
 					RequestDispatcher failureView = req
-							.getRequestDispatcher("/back-end/tags/index_tags.jsp");
+							.getRequestDispatcher("/back-end/tags/select_tags.jsp");
 					failureView.forward(req, res);
 					return;//程式中斷
 				}
@@ -62,14 +62,14 @@ public class TagsServlet extends HttpServlet {
 				// Send the use back to the form, if there were errors
 				if (!errorMsgs.isEmpty()) {
 					RequestDispatcher failureView = req
-							.getRequestDispatcher("/back-end/tags/index_tags.jsp");
+							.getRequestDispatcher("/back-end/tags/select_tags.jsp");
 					failureView.forward(req, res);
 					return;//程式中斷
 				}
 				
 				/***************************3.查詢完成,準備轉交(Send the Success view)*************/
 				req.setAttribute("tagsVO", tagsVO); // 資料庫取出的empVO物件,存入req
-				String url = "/back-end/tags/listOneTag.jsp";
+				String url = "/back-end/tags/list_one_tag.jsp";
 				RequestDispatcher successView = req.getRequestDispatcher(url); // 成功轉交 listOneEmp.jsp
 				successView.forward(req, res);
 
@@ -77,7 +77,7 @@ public class TagsServlet extends HttpServlet {
 			} catch (Exception e) {
 				errorMsgs.add("無法取得資料:" + e.getMessage());
 				RequestDispatcher failureView = req
-						.getRequestDispatcher("/back-end/tags/index_tags.jsp");
+						.getRequestDispatcher("/back-end/tags/select_tags.jsp");
 				failureView.forward(req, res);
 			}
 		}
@@ -107,7 +107,7 @@ public class TagsServlet extends HttpServlet {
 			} catch (Exception e) {
 				errorMsgs.add("無法取得要修改的資料:" + e.getMessage());
 				RequestDispatcher failureView = req
-						.getRequestDispatcher("/back-end/tags/index_tags.jsp");
+						.getRequestDispatcher("/back-end/tags/select_tags.jsp");
 				failureView.forward(req, res);
 			}
 		}
@@ -147,7 +147,7 @@ public class TagsServlet extends HttpServlet {
 				
 				/***************************3.修改完成,準備轉交(Send the Success view)*************/
 				req.setAttribute("tagsVO", tagsVO); // 資料庫update成功後,正確的的empVO物件,存入req
-				String url = "/back-end/tags/listOneTag.jsp";
+				String url = "/back-end/tags/list_one_tag.jsp";
 				RequestDispatcher successView = req.getRequestDispatcher(url); // 修改成功後,轉交listOneEmp.jsp
 				successView.forward(req, res);
 
@@ -181,7 +181,7 @@ public class TagsServlet extends HttpServlet {
 				if (!errorMsgs.isEmpty()) {
 					req.setAttribute("tagsVO", tagsVO); // 含有輸入格式錯誤的empVO物件,也存入req
 					RequestDispatcher failureView = req
-							.getRequestDispatcher("/back-end/tags/addTags.jsp");
+							.getRequestDispatcher("/back-end/tags/add_tags.jsp");
 					failureView.forward(req, res);
 					return;
 				}
@@ -191,7 +191,7 @@ public class TagsServlet extends HttpServlet {
 				tagsVO = tagsSvc.insertTags(tag_name, tag_add_time);
 				
 				/***************************3.新增完成,準備轉交(Send the Success view)***********/
-				String url = "/back-end/tags/index_tags.jsp";
+				String url = "/back-end/tags/list_all_tags.jsp";
 				RequestDispatcher successView = req.getRequestDispatcher(url); // 新增成功後轉交listAllEmp.jsp
 				successView.forward(req, res);				
 				
@@ -199,7 +199,7 @@ public class TagsServlet extends HttpServlet {
 			} catch (Exception e) {
 				errorMsgs.add(e.getMessage());
 				RequestDispatcher failureView = req
-						.getRequestDispatcher("/back-end/tags/addTags.jsp");
+						.getRequestDispatcher("/back-end/tags/add_tags.jsp");
 				failureView.forward(req, res);
 			}
 		}
@@ -220,7 +220,7 @@ public class TagsServlet extends HttpServlet {
 				tagsSvc.deleteTag(tag_id);
 				
 				/***************************3.刪除完成,準備轉交(Send the Success view)***********/								
-				String url = "/back-end/tags/index_tags.jsp";
+				String url = "/back-end/tags/list_all_tags.jsp";
 				RequestDispatcher successView = req.getRequestDispatcher(url);// 刪除成功後,轉交回送出刪除的來源網頁
 				successView.forward(req, res);
 				
@@ -228,7 +228,7 @@ public class TagsServlet extends HttpServlet {
 			} catch (Exception e) {
 				errorMsgs.add("刪除資料失敗:"+e.getMessage());
 				RequestDispatcher failureView = req
-						.getRequestDispatcher("/back-end/tags/index_tags.jsp");
+						.getRequestDispatcher("/back-end/tags/select_tags.jsp");
 				failureView.forward(req, res);
 			}
 		}

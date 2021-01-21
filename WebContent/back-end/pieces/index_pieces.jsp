@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -124,7 +125,11 @@
 
 	</ul>
 	</div>
-
+		<%
+			List<PiecesVO> list = piecesSvc.getAllPieces();
+			pageContext.setAttribute("list", list);
+		%>
+		<%@ include file="pages/page1.file"%>
 	<table>
 		<tr>
 			<th>作品ID</th>
@@ -143,7 +148,11 @@
 			<tr>
 				<td>${piecesVO.piece_id}</td>
 				<td>${piecesVO.album_id}</td>
-				<td>${piecesVO.piece}</td>
+				<td>
+					<audio controls> <!-- controls autoplay loop  -->
+					<source src="<%=request.getContextPath()%>/pieces/pieces.do?action=getPiece&piece_id=${piecesVO.piece_id}" type="audio/mpeg">
+					</audio>
+				</td>
 				<td>${piecesVO.piece_status == 0 ? "下架":"上架"}</td>
 				<td>${piecesVO.piece_play_count}</td>
 				<td><fmt:formatDate	value="${piecesVO.piece_add_time}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
@@ -172,6 +181,7 @@
 
 
 	</table>
+	<%@ include file="pages/page2.file"%>
 	<!-- 參考網站: https://xdsoft.net/jqplugins/datetimepicker/ -->
 <link   rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/plugins/datetimepicker/jquery.datetimepicker.css" />
 <script src="<%=request.getContextPath()%>/plugins/datetimepicker/jquery.js"></script>

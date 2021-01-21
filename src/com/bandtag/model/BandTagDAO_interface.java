@@ -1,11 +1,9 @@
 package com.bandtag.model;
 
 import java.util.List;
+import database.util.ConnectionInfo;
 
-import database.util.DatabaseConnection;
-
-
-public interface BandTagDAO_interface  {
+public interface BandTagDAO_interface extends ConnectionInfo {
 
 	public void insert(BandTagVO bandTagVO);
     public void update(BandTagVO bandTagVO);

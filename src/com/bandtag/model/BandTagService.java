@@ -9,6 +9,7 @@ public class BandTagService {
 	private BandTagDAO_interface dao;
 	
 	public BandTagService() {
+		dao = new BandTagDAO();
 		dao = new BandTagDAOJDBC();
 	}
 	
